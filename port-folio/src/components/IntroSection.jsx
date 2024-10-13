@@ -60,7 +60,7 @@ const IntroSection = ({ scrollToNextSection }) => {
 
         {/* Animated Role Text */}
         <p
-          className={`text-2xl md:text-3xl font-semibold text-purple-600 mt-8 transition duration-500 ease-in-out transform ${
+          className={`text-2xl md:text-3xl font-semibold text-purple-400 mt-8 transition duration-500 ease-in-out transform ${
             fade ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >

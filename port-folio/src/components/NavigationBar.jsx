@@ -47,7 +47,7 @@ const NavigationBar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-10" style={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
       <nav className="container mx-auto flex justify-between items-center">
-        <div className="text-purple-600 flex items-center space-x-2">
+        {/* <div className="text-purple-600 flex items-center space-x-2">
           <a 
             href="https://github.com/Aditya-Bhadauria" 
             target="_blank" 
@@ -65,7 +65,7 @@ const NavigationBar = () => {
           >
             <Linkedin size={24} />
           </a>
-        </div>
+        </div> */}
         {/* <button className="bg-purple-600 text-white px-4 py-2 rounded-full flex items-center">
           <MessageCircleIcon size={18} />
           <span className="ml-2">HIRE ME</span>

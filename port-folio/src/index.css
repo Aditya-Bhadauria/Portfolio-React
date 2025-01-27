@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* body {
+    cursor: none;
+  } */
+
+/* Global CSS */
+body, img, button, input, a, * {
+  cursor: none !important;
+}

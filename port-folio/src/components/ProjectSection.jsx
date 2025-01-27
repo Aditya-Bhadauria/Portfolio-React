@@ -1,126 +1,173 @@
-// src/components/ProjectSection.jsx
-// import React from 'react';
 
-// const ProjectSection = ({ forwardedRef }) => {
-//   return (
-//     <section ref={forwardedRef} className="min-h-screen w-full flex flex-col items-center justify-center bg-gray-100 py-16">
-//       <div className="w-full px-4 md:max-w-4xl lg:max-w-6xl">
-//         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Projects</h2>
-//         <p className="text-lg sm:text-xl mb-12">From time to time I like to Build open source projects to help the wider web development community.</p>
-        
-//         <div className="grid md:grid-cols-2 gap-12">
-//           <div className="flex flex-col items-start">
-//             <div className="w-32 h-32 mb-6">
-//               <svg viewBox="0 0 200 200" className="w-full h-full">
-//                 <rect width="200" height="200" fill="#E2E8F0" />
-//                 <path d="M100 30 L160 170 L40 170 Z" fill="#805AD5" />
-//               </svg>
-//             </div>
-//             <h3 className="text-2xl sm:text-3xl font-bold mb-4">ChronoLog</h3>
-//             <p className="text-lg mb-4">
-//               Chronolog is a web application designed to be your one-stop shop for productivity and personal reflection.
-//             </p>
-//             <button className="bg-purple-600 text-white px-6 py-3 rounded-full">Try ChronoLog</button>
-//           </div>
-          
-//           <div className="flex flex-col items-start">
-//             <div className="w-32 h-32 mb-6 bg-gray-300"></div>
-//             <h3 className="text-2xl sm:text-3xl font-bold mb-4">Project 2</h3>
-//             <p className="text-lg mb-4">Description of your second project goes here.</p>
-//             <button className="bg-purple-600 text-white px-6 py-3 rounded-full">Learn More</button>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+import React from "react";
+import { Timeline } from "../components/ProjectBackbone";
+// import { cn } from "./LayoutUtil";
 
-// export default ProjectSection;
+import canva1 from "../assets/Images/Canva1.png";
+import canva2 from "../assets/Images/Canva2.png";
+import canva3 from "../assets/Images/Canva3.png";
+import canva4 from "../assets/Images/Canva4.png";
 
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import flipKart1 from "../assets/Images/FlipKart1.png";
+import flipKart2 from "../assets/Images/FlipKart2.png";
+import flipKart3 from "../assets/Images/FlipKart3.png";
+import flipKart4 from "../assets/Images/FlipKart4.png";
 
-const ProjectSection = ({ forwardedRef }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+import brand1 from "../assets/Images/Brand1.png";
+import brand2 from "../assets/Images/Brand2.png";
+import brand3 from "../assets/Images/Brand3.png";
+import brand4 from "../assets/Images/Brand4.png";
 
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    }
-  }, [controls, inView]);
 
-  return (
-    <section ref={forwardedRef} className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 py-16">
-      {/* Title Section */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={controls}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className="text-5xl md:text-7xl font-bold text-center mb-12"
-      >
-        Projects
-      </motion.h2>
 
-      {/* Scrolling Project Cards */}
-      <div ref={ref} className="w-full overflow-hidden">
-        <motion.div
-          className="flex items-center space-x-8 md:space-x-12 px-8"
-          initial={{ x: '100%' }}
-          animate={{ x: '-100%' }}
-          transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
-        >
-          {/* Project Card 1 */}
-          <motion.div
-            whileHover={{ scale: 1.1, x: 0 }}
-            className="flex-shrink-0 w-64 md:w-80 bg-white shadow-lg p-6 rounded-lg cursor-pointer"
-          >
-            <div className="w-32 h-32 mb-4 mx-auto">
-              <motion.svg
-                viewBox="0 0 200 200"
-                className="w-full h-full"
-                whileHover={{ rotate: [0, 15, -15, 0] }}
-                transition={{ duration: 0.8, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
-              >
-                <rect width="200" height="200" fill="#E2E8F0" />
-                <path d="M100 30 L160 170 L40 170 Z" fill="#805AD5" />
-              </motion.svg>
+
+
+
+
+
+export function TimelineDemo() {
+  const data = [
+    {
+      title: "Canva",
+      content: (
+        <div>
+          <p
+            className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Videos we Produced as The latest Canva Campaign
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={canva1}
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={canva2}
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={canva3}
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src= {canva4}
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Flipkart",
+      content: (
+        <div>
+          <p
+            className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Videos we Produced for The latest Flipkart Campaign
+          </p>
+          <p
+            className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Across the Flipkart Campaigns
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={flipKart1}
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={flipKart2}
+              alt="feature template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={flipKart3}
+              alt="bento template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={flipKart4}
+              alt="cards template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "And Many More",
+      content: (
+        <div>
+          <p
+            className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            We Love them...And they Love us!!
+          </p>
+          {/* <div className="mb-8">
+            <div
+              className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Card grid component
             </div>
-            <h3 className="text-xl font-bold mb-2 text-center">ChronoLog</h3>
-            <p className="text-center text-gray-600 mb-4">Chronolog is your go-to app for productivity and personal reflection.</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-4 py-2 rounded-full w-full"
-            >
-              Try ChronoLog
-            </motion.button>
-          </motion.div>
-
-          {/* Project Card 2 */}
-          <motion.div
-            whileHover={{ scale: 1.1, x: 0 }}
-            className="flex-shrink-0 w-64 md:w-80 bg-white shadow-lg p-6 rounded-lg cursor-pointer"
-          >
-            <div className="w-32 h-32 mb-4 mx-auto bg-gray-300"></div>
-            <h3 className="text-xl font-bold mb-2 text-center">Project 2</h3>
-            <p className="text-center text-gray-600 mb-4">Description of your second project goes here.</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-4 py-2 rounded-full w-full"
-            >
-              Learn More
-            </motion.button>
-          </motion.div>
-
-          {/* Add more project cards as needed */}
-        </motion.div>
-      </div>
-    </section>
+            <div
+              className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Startup template Aceternity
+            </div>
+            <div
+              className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Random file upload lol
+            </div>
+            <div
+              className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Himesh Reshammiya Music CD
+            </div>
+            <div
+              className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Salman Bhai Fan Club registrations open
+            </div>
+          </div> */}
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={brand1}
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={brand2}
+              alt="feature template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={brand3}
+              alt="bento template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+            <img
+              src={brand4}
+              alt="cards template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" />
+          </div>
+        </div>
+      ),
+    },
+  ];
+  return (
+    (<div className="w-full">
+      <Timeline data={data} />
+    </div>)
   );
-};
-
-export default ProjectSection;
-
-
-
+}

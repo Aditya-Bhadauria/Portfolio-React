@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import NavigationBar from '../components/NavigationBar';
 import IntroSection from '../components/IntroSection';
 import WorkTogetherSection from '../components/WorkTogetherSection';
-import ProjectSection from '../components/ProjectSection';
+import {TimelineDemo} from '../components/ProjectSection';
 
 const LandingPage = () => {
   const workTogetherRef = useRef(null);
@@ -23,7 +23,7 @@ const LandingPage = () => {
       <main>
         <IntroSection scrollToNextSection={scrollToWorkTogether} />
         <WorkTogetherSection forwardedRef={workTogetherRef} scrollToNextSection={scrollToProjects} />
-        <ProjectSection forwardedRef={projectsRef} />
+        <TimelineDemo forwardedRef={projectsRef} />
       </main>
     </div>
   );

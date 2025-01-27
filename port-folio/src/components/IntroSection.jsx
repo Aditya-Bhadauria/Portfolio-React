@@ -1,5 +1,4 @@
-// Version 1
-
+// Version 2
 
 // import React, { useEffect, useState } from 'react';
 // import { ArrowDownIcon } from 'lucide-react';
@@ -8,25 +7,20 @@
 
 // const IntroSection = ({ scrollToNextSection }) => {
 //   const [offsetY, setOffsetY] = useState(0);
-//   const [role, setRole] = useState('A Developer');
-//   const [fade, setFade] = useState(true);
+//   const [isCursorVisible, setIsCursorVisible] = useState(true);
 
 //   // Handle parallax scroll effect
 //   const handleScroll = () => {
 //     setOffsetY(window.scrollY);
 //   };
 
-//   // Toggle between "A Developer" and "A Designer" with animation
+//   // Cursor blink effect
 //   useEffect(() => {
-//     const toggleRole = setInterval(() => {
-//       setFade(false); // Start fade-out
-//       setTimeout(() => {
-//         setRole((prevRole) => (prevRole === 'A Developer' ? 'A Designer' : 'A Developer'));
-//         setFade(true); // Start fade-in after role changes
-//       }, 500); // Duration for fade-out before changing text
-//     }, 3500); // Duration between text changes
+//     const cursorInterval = setInterval(() => {
+//       setIsCursorVisible((prev) => !prev);
+//     }, 500); // Blink every 500ms
 
-//     return () => clearInterval(toggleRole);
+//     return () => clearInterval(cursorInterval);
 //   }, []);
 
 //   // Scroll listener
@@ -48,7 +42,7 @@
 //     <section className="min-h-screen flex items-center justify-center bg-gray-100 w-full relative overflow-hidden">
 //       {/* Parallax Background Text */}
 //       <h1
-//         className="absolute text-8xl md:text-9xl font-bold text-purple-400 z-10 select-none"
+//         className="absolute text-8xl md:text-9xl font-bold text-red-500 z-10 select-none"
 //         style={{
 //           transform: `translateY(${offsetY * 0.5 - 220}px)`, // Adjust vertical offset here
 //         }}
@@ -60,23 +54,35 @@
 //       <div className="w-full flex flex-col items-center z-20">
 //         <Lottie options={defaultOptions} height={450} width={450} speed={0.75} />
 
-//         {/* Animated Role Text */}
-//         <p
-//           className={`text-2xl md:text-3xl font-semibold text-purple-400 mt-8 transition duration-500 ease-in-out transform ${
-//             fade ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-//           }`}
-//         >
-//           {role}
+//         {/* Static Text with Blinking Cursor */}
+//         <p className="text-2xl md:text-3xl font-semibold text-red-500 mt-8 relative">
+//           &lt;FrontEndDev/&gt;
+//           {isCursorVisible && <span className="cursor">|</span>} {/* Blinking cursor */}
 //         </p>
 //       </div>
 
 //       {/* Scroll Button */}
 //       <div className="absolute bottom-10">
-//         <button onClick={scrollToNextSection} className="text-purple-600 flex items-center">
+//         <button onClick={scrollToNextSection} className="text-red-600 flex items-center">
 //           <span className="mr-2">CLICK TO SCROLL</span>
 //           <ArrowDownIcon size={24} />
 //         </button>
 //       </div>
+
+//       {/* Cursor CSS */}
+//       <style jsx>{`
+//         .cursor {
+//           display: inline-block;
+//           margin-left: 5px; /* Adjust space between text and cursor */
+//           animation: blink 0.7s step-end infinite;
+//         }
+
+//         @keyframes blink {
+//           50% {
+//             opacity: 0;
+//           }
+//         }
+//       `}</style>
 //     </section>
 //   );
 // };
@@ -85,7 +91,6 @@
 
 
 
-// Version 2
 
 import React, { useEffect, useState } from 'react';
 import { ArrowDownIcon } from 'lucide-react';
@@ -129,7 +134,7 @@ const IntroSection = ({ scrollToNextSection }) => {
     <section className="min-h-screen flex items-center justify-center bg-gray-100 w-full relative overflow-hidden">
       {/* Parallax Background Text */}
       <h1
-        className="absolute text-8xl md:text-9xl font-bold text-purple-400 z-10 select-none"
+        className="absolute text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-red-500 z-10 select-none"
         style={{
           transform: `translateY(${offsetY * 0.5 - 220}px)`, // Adjust vertical offset here
         }}
@@ -139,10 +144,15 @@ const IntroSection = ({ scrollToNextSection }) => {
 
       {/* Lottie Animation */}
       <div className="w-full flex flex-col items-center z-20">
-        <Lottie options={defaultOptions} height={450} width={450} speed={0.75} />
+        <Lottie
+          options={defaultOptions}
+          height={window.innerWidth < 768 ? 250 : 450} // Smaller height on mobile
+          width={window.innerWidth < 768 ? 250 : 450} // Smaller width on mobile
+          speed={0.75}
+        />
 
         {/* Static Text with Blinking Cursor */}
-        <p className="text-2xl md:text-3xl font-semibold text-purple-400 mt-8 relative">
+        <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-500 mt-8 relative">
           &lt;FrontEndDev/&gt;
           {isCursorVisible && <span className="cursor">|</span>} {/* Blinking cursor */}
         </p>
@@ -150,9 +160,12 @@ const IntroSection = ({ scrollToNextSection }) => {
 
       {/* Scroll Button */}
       <div className="absolute bottom-10">
-        <button onClick={scrollToNextSection} className="text-purple-600 flex items-center">
+        <button
+          onClick={scrollToNextSection}
+          className="text-red-600 flex items-center text-sm sm:text-base"
+        >
           <span className="mr-2">CLICK TO SCROLL</span>
-          <ArrowDownIcon size={24} />
+          <ArrowDownIcon size={20} />
         </button>
       </div>
 
@@ -175,4 +188,3 @@ const IntroSection = ({ scrollToNextSection }) => {
 };
 
 export default IntroSection;
-

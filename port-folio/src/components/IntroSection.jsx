@@ -153,7 +153,7 @@ const IntroSection = ({ scrollToNextSection }) => {
 
         {/* Static Text with Blinking Cursor */}
         <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-500 mt-8 relative">
-          &lt;FrontEndDev/&gt;
+          &lt;Front-End-Dev/&gt;
           {isCursorVisible && <span className="cursor">|</span>} {/* Blinking cursor */}
         </p>
       </div>
